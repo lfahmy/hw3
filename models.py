@@ -13,11 +13,11 @@ class classifier(nn.Module):
 
     def forward(self, x):
         ## WRITE YOUR CODE HERE ##
-        x = F.relu_(self.conv1(x))
+        x = F.relu(self.conv1(x), inplace=True)
         x = F.max_pool2d(x, 2, stride=2)
-        x = F.relu_(self.conv2(x))
+        x = F.relu(self.conv2(x), inplace=True)
         x = F.max_pool2d(x, 2, stride=2)
-        x = F.relu_(self.fc1(x))
+        x = F.relu(self.fc1(x), inplace=True)
         if(isDropOut):
         	x = F.dropout2d(x, p=.4)
         x = F.softmax(self.fc2(x))
