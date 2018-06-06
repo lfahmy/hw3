@@ -10,6 +10,7 @@ class classifier(nn.Module):
         self.conv2 = nn.Conv2d(32, 64, 5, padding=2)
         self.fc1 = nn.Linear(64, 1024)
         self.fc2 = nn.Linear(1024, 10)
+        print(type(conv1), type(fc1), conv1, fc1)
 
     def forward(self, x):
         ## WRITE YOUR CODE HERE ##
